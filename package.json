@@ -6,19 +6,26 @@
     "apps/*",
     "packages/*"
   ],
+  "overrides": {
+    "shell-quote": "^1.8.5"
+  },
   "scripts": {
     "dev": "concurrently -n api,web -c auto \"npm run dev:api\" \"npm run dev:web\"",
     "dev:web": "npm run dev --workspace=@attention-spanner/web",
     "dev:api": "npm run start:dev --workspace=@attention-spanner/api",
     "build": "npm run build --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "engines": {
     "node": ">=24 <25",
     "npm": ">=10"
   },
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "concurrently": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.6"
   }
 }
